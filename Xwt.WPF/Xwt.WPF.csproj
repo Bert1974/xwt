@@ -7,7 +7,6 @@
     <RootNamespace>Xwt.WPF</RootNamespace>
     <AssemblyName>Xwt.WPF</AssemblyName>
     <DefineConstants>DEBUG;NETFRAMEWORK</DefineConstants>
-    <TargetFramework>net5.0-windows</TargetFramework>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>full</DebugType>
