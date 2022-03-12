@@ -6,6 +6,9 @@
     <RootNamespace>Xwt</RootNamespace>
     <AssemblyName>Xwt</AssemblyName>
     <DisableImplicitNamespaceImports>True</DisableImplicitNamespaceImports>
+    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
+	<DisablePackageAssetsCache>true</DisablePackageAssetsCache>
+	<AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>full</DebugType>
