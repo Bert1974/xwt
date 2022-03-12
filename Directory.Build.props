@@ -21,6 +21,7 @@
 		<TargetFrameworks Condition="$(Net6)">$(DotNetCoreTarget)</TargetFrameworks>
 
 		<AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
+<IntermediateOutputPath>$(BaseIntermediateOutputPath)\$(Configuration)\$(TargetFramework.ToLowerInvariant())\</IntermediateOutputPath>
 
 	</PropertyGroup>
 
@@ -33,6 +34,7 @@
 		<TargetFrameworks Condition="$(Net6)">$(DotNetCoreTarget)</TargetFrameworks>
 
 		<AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
+<IntermediateOutputPath>$(BaseIntermediateOutputPath)\$(Configuration)\$(TargetFramework.ToLowerInvariant())\</IntermediateOutputPath>
 
 	</PropertyGroup>
 
