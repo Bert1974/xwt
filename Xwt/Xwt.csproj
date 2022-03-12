@@ -6,7 +6,7 @@
     <RootNamespace>Xwt</RootNamespace>
     <AssemblyName>Xwt</AssemblyName>
     <DisableImplicitNamespaceImports>True</DisableImplicitNamespaceImports>
-    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net461</TargetFrameworks>
 	<DisablePackageAssetsCache>true</DisablePackageAssetsCache>
 	<AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
