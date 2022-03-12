@@ -361,7 +361,7 @@ namespace Xwt.Mac
 		public override Matrix GetCTM (object backend)
 		{
 			CGAffineTransform t = GetContextTransform ((CGContextBackend)backend);
-			Matrix ctm = new Matrix (t.a, t.B, t.C, t.D, t.Tx, t.Ty);
+			Matrix ctm = new Matrix (t.xx, t.xy, t.yx, t.yy, t.x0, t.y0);
 			return ctm;
 		}
 
