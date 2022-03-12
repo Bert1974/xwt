@@ -77,6 +77,3 @@ test_script:
 artifacts:
 - path: nuget\*.nupkg
   name: Xwt-$(APPVEYOR_BUILD_VERSION)
-
-  on:
-    branch: main
