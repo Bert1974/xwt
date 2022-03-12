@@ -17,7 +17,7 @@
 		<MacTargetFramework Condition="!$(Net6)">net461</MacTargetFramework>
 		<MacTargetFramework Condition="$(Net6)">net6.0-macos</MacTargetFramework>
 
-		<TargetFrameworks Condition="!$(Net6)" >$(DotNetTargetFrameworks)</TargetFrameworks>
+		<TargetFramework Condition="!$(Net6)" >$(DotNetTargetFramework)</TargetFramework>
 		<TargetFramework Condition="$(Net6)">$(DotNetCoreTarget)</TargetFramework>
 
 		<AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
