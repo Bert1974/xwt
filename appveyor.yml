@@ -77,10 +77,6 @@ test_script:
 artifacts:
 - path: nuget\*.nupkg
   name: Xwt-$(APPVEYOR_BUILD_VERSION)
-deploy:
-- provider: NuGet
-  api_key:
-    secure: q/YdWU2pAOOVJ6CYJV7RGeb0SfbAg949QZrqW3WVbM0WiDSa6lc1P8RNa3WQgc08
-  skip_symbols: true
+
   on:
     branch: main

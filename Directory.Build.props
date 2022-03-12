@@ -6,14 +6,15 @@
     <InMonoDevelopTree Condition="Exists('$(MSBuildThisFileDirectory)..\..\msbuild\MonoDevelop.AfterCommon.props')">True</InMonoDevelopTree>
     <Net6 Condition="Exists('$(MSBuildThisFileDirectory)..\..\msbuild\Net6.props')">True</Net6>
 
-    <DotNetFrameworkTarget>net461</DotNetFrameworkTarget>
+    <DotNetFrameworkTarget >net461</DotNetFrameworkTarget>
     <DotNetCoreTarget>netstandard2.0</DotNetCoreTarget>
 
     <MacTargetFramework Condition="!$(Net6)">$(DotNetFrameworkTarget)</MacTargetFramework>
     <MacTargetFramework Condition="$(Net6)">net6.0-macos</MacTargetFramework>
 
-    <TargetFramework Condition="!$(Net6)">$(DotNetFrameworkTarget)</TargetFramework>
-    <TargetFramework Condition="$(Net6)">$(DotNetCoreTarget)</TargetFramework>
+    <TargetFrameworks Condition="!$([MSBuild]::IsOSPlatform('Linux'))" >netstandard2.0;netstandard2.1</TargetFrameworks>
+    <TargetFramework Condition="$([MSBuild]::IsOSPlatform('Linux')) AND !$(Net6)">$(DotNetFrameworkTarget)</TargetFramework>
+    <TargetFramework Condition="$([MSBuild]::IsOSPlatform('Linux')) AND $(Net6)">$(DotNetCoreTarget)</TargetFramework>
 
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
