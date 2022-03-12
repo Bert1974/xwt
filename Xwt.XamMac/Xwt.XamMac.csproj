@@ -11,7 +11,7 @@
     <AssemblyName>Xwt.XamMac</AssemblyName>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>..\xwt.snk</AssemblyOriginatorKeyFile>
-    <TargetFramework>net461</TargetFramework>
+    <TargetFrameworks>net461</TargetFrameworks>
     <DisableImplicitNamespaceImports>True</DisableImplicitNamespaceImports>
 
     <SupportedOSPlatformVersion>10.14</SupportedOSPlatformVersion>

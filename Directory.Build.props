@@ -17,8 +17,8 @@
 		<MacTargetFramework Condition="!$(Net6)">net461</MacTargetFramework>
 		<MacTargetFramework Condition="$(Net6)">net6.0-macos</MacTargetFramework>
 
-		<TargetFramework Condition="!$(Net6)" >$(DotNetTargetFramework)</TargetFramework>
-		<TargetFramework Condition="$(Net6)">$(DotNetCoreTarget)</TargetFramework>
+		<TargetFrameworks Condition="!$(Net6)" >$(DotNetTargetFramework)</TargetFrameworks>
+		<TargetFrameworks Condition="$(Net6)">$(DotNetCoreTarget)</TargetFrameworks>
 
 		<AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
 
@@ -30,7 +30,7 @@
 		<MacTargetFramework Condition="$(Net6)">net6.0-macos</MacTargetFramework>
 
 		<TargetFrameworks Condition="!$(Net6)" >netstandard2.0;netstandard2.1;netcoreapp3.1;net472;net461</TargetFrameworks>
-		<TargetFramework Condition="$(Net6)">$(DotNetCoreTarget)</TargetFramework>
+		<TargetFrameworks Condition="$(Net6)">$(DotNetCoreTarget)</TargetFrameworks>
 
 		<AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
 
