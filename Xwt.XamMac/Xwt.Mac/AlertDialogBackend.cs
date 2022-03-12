@@ -40,7 +40,7 @@ namespace Xwt.Mac
 		{
 		}
 		
-		public AlertDialogBackend (NativeHandle intptr)
+		public AlertDialogBackend (IntPtr intptr)
 		{
 		}
 
@@ -118,7 +118,7 @@ namespace Xwt.Mac
 		public bool ApplyToAll { get; set; }
 		#endregion
 
-		public override bool ConformsToProtocol (NativeHandle protocol)
+		public override bool ConformsToProtocol (IntPtr protocol)
 		{
 			// HACK: for some reason on systems with a TouchBar this might be called
 			//       after the window has been closed and released, resulting in

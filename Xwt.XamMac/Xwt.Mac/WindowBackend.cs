@@ -49,7 +49,7 @@ namespace Xwt.Mac
 		bool sensitive = true;
 		WindowFrameEvent eventsEnabled;
 
-		public WindowBackend (NativeHandle ptr): base (ptr)
+		public WindowBackend (IntPtr ptr): base (ptr)
 		{
 		}
 		
@@ -567,7 +567,7 @@ namespace Xwt.Mac
 			}
 		}
 
-		public override bool ConformsToProtocol (NativeHandle protocol)
+		public override bool ConformsToProtocol (IntPtr protocol)
 		{
 			// HACK: for some reason on systems with a TouchBar this might be called
 			//       after the window has been closed and released, resulting in

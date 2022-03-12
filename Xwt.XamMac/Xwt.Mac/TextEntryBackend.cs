@@ -357,7 +357,7 @@ namespace Xwt.Mac
 
 			}
 
-			protected CustomCell(NativeHandle ptr) : base(ptr)
+			protected CustomCell(IntPtr ptr) : base(ptr)
 			{
 			}
 

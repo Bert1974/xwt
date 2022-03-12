@@ -56,7 +56,7 @@ namespace Xwt.Mac
 			}
 		}
 
-		public DialogBackend (NativeHandle ptr) : base (ptr)
+		public DialogBackend (IntPtr ptr) : base (ptr)
 		{
 		}
 
