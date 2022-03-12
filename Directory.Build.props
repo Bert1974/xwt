@@ -20,7 +20,4 @@
 
   </PropertyGroup>
   
-<Target Name="message" >
-    <Message Text="net6=$(Net6)"/>
-</Target>
 </Project>

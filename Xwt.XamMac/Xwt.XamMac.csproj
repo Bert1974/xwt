@@ -1,4 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
+<Target Name="message" >
+    <Message Text="net6=$(Net6)"/>
+</Target>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
