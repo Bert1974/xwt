@@ -12,9 +12,8 @@
     <MacTargetFramework Condition="!$(Net6)">$(DotNetFrameworkTarget)</MacTargetFramework>
     <MacTargetFramework Condition="$(Net6)">net6.0-macos</MacTargetFramework>
 
-    <TargetFrameworks Condition="!$([MSBuild]::IsOSPlatform('Linux'))" >netstandard2.0;netstandard2.1</TargetFrameworks>
-    <TargetFramework Condition="$([MSBuild]::IsOSPlatform('Linux')) AND !$(Net6)">$(DotNetFrameworkTarget)</TargetFramework>
-    <TargetFramework Condition="$([MSBuild]::IsOSPlatform('Linux')) AND $(Net6)">$(DotNetCoreTarget)</TargetFramework>
+    <TargetFrameworks Condition="!$(Net6)" >netstandard2.0;netstandard2.1;netcoreapp3.1;net472;net461</TargetFrameworks>
+    <TargetFramework Condition="$(Net6)">$(DotNetCoreTarget)</TargetFramework>
 
     <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
 
