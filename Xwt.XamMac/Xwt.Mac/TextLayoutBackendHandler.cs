@@ -261,7 +261,7 @@ namespace Xwt.Mac
 					TextStorage.AddLayoutManager (TextLayout);
 
 					TextLayout.DrawBackgroundForGlyphRange(new NSRange(0, Text.Length), new CGPoint (x, y));
-					TextLayout.DrawGlyphsForGlyphRange(new NSRange(0, Text.Length), new CGPoint (x, y));
+					TextLayout.DrawGlyphsForGlyphRange (new NSRange(0, Text.Length), new CGPoint (x, y));
 					TextStorage.RemoveLayoutManager (TextLayout);
 					TextLayout.RemoveTextContainer (0);
 				}
@@ -280,7 +280,7 @@ namespace Xwt.Mac
 				{
 					TextLayout.AddTextContainer (TextContainer);
 					TextStorage.AddLayoutManager (TextLayout);
-					TextLayout.GlyphRangeForBoundingRect(new CGRect (CGPoint.Empty, TextContainer.Size), TextContainer);
+					TextLayout.GetGlyphRangeForBoundingRect (new CGRect (CGPoint.Empty, TextContainer.Size), TextContainer);
 					var s = TextLayout.GetUsedRect (TextContainer);
 					TextStorage.RemoveLayoutManager (TextLayout);
 					TextLayout.RemoveTextContainer (0);
