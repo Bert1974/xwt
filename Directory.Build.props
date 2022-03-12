@@ -1,6 +1,6 @@
 <Project>
 
-  <PropertyGroup>
+  <PropertyGroup Condition=" '$(TARGET)' != 'XWT' " >
     <InMonoDevelopTree>False</InMonoDevelopTree>
     <Net6>False</Net6>
     <InMonoDevelopTree Condition="Exists('$(MSBuildThisFileDirectory)..\..\msbuild\MonoDevelop.AfterCommon.props')">True</InMonoDevelopTree>
@@ -16,7 +16,7 @@
     <TargetFramework Condition="$([MSBuild]::IsOSPlatform('Linux')) AND !$(Net6)">$(DotNetFrameworkTarget)</TargetFramework>
     <TargetFramework Condition="$([MSBuild]::IsOSPlatform('Linux')) AND $(Net6)">$(DotNetCoreTarget)</TargetFramework>
 
-    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
 
 </Project>
