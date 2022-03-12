@@ -2,7 +2,7 @@
 
 	<PropertyGroup >
 		<InMonoDevelopTree>False</InMonoDevelopTree>
-		<Net6>False</Net6>
+		<Net6>True</Net6>
 		<InMonoDevelopTree Condition="Exists('$(MSBuildThisFileDirectory)..\..\msbuild\MonoDevelop.AfterCommon.props')">True</InMonoDevelopTree>
 		<Net6 Condition="Exists('$(MSBuildThisFileDirectory)..\..\msbuild\Net6.props')">True</Net6>
 
