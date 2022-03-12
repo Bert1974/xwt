@@ -6,7 +6,7 @@
     <RootNamespace>Xwt</RootNamespace>
     <AssemblyName>Xwt</AssemblyName>
     <DisableImplicitNamespaceImports>True</DisableImplicitNamespaceImports>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;netcoreapp3.1;net472;net461</TargetFrameworks>
+    <TargetFrameworks>$(DotNetTargetFrameworks)</TargetFrameworks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>full</DebugType>
