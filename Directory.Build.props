@@ -17,6 +17,10 @@
     <TargetFramework Condition="$([MSBuild]::IsOSPlatform('Linux')) AND $(Net6)">$(DotNetCoreTarget)</TargetFramework>
 
     <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
+	<Target ...>
+      <Message Text="net6=$(Net6)"/>
+    </Target>
+
   </PropertyGroup>
 
 </Project>
