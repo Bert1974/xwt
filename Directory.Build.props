@@ -17,6 +17,8 @@
     <TargetFrameworks Condition="$(Net6)">$(DotNetCoreTarget)</TargetFrameworks>
 
     <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
+    
+    <DefineConstants>$(DefineConstants);NET</DefineConstants>
   </PropertyGroup>
 
 </Project>
