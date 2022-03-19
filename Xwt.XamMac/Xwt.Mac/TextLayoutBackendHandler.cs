@@ -285,8 +285,13 @@ namespace Xwt.Mac
 				{
 					TextLayout.AddTextContainer (TextContainer);
 					TextStorage.AddLayoutManager (TextLayout);
+#if NET
+					TextLayout.GlyphRangeForBoundingRect(new CGRect (CGPoint.Empty, TextContainer.Size), TextContainer);
+					var s = TextLayout.GetUsedRectForTextContainer (TextContainer);
+#else
 					TextLayout.GetGlyphRangeForBoundingRect (new CGRect (CGPoint.Empty, TextContainer.Size), TextContainer);
 					var s = TextLayout.GetUsedRect (TextContainer);
+#endif
 					TextStorage.RemoveLayoutManager (TextLayout);
 					TextLayout.RemoveTextContainer (0);
 					return s.Size;
@@ -309,7 +314,11 @@ namespace Xwt.Mac
 				{
 					TextLayout.AddTextContainer (TextContainer);
 					TextStorage.AddLayoutManager (TextLayout);
+#if NET
+					TextLayout.GlyphRangeForBoundingRect(new CGRect (CGPoint.Empty, TextContainer.Size), TextContainer);
+#else
 					TextLayout.GetGlyphRangeForBoundingRect (new CGRect (CGPoint.Empty, TextContainer.Size), TextContainer);
+#endif
 					var index = TextLayout.GetCharacterIndex (new CGPoint (x, y), TextContainer, out var fraction);
 					TextStorage.RemoveLayoutManager (TextLayout);
 					TextLayout.RemoveTextContainer (0);
@@ -323,9 +332,15 @@ namespace Xwt.Mac
 				{
 					TextLayout.AddTextContainer (TextContainer);
 					TextStorage.AddLayoutManager (TextLayout);
-					TextLayout.GetGlyphRangeForBoundingRect (new CGRect (CGPoint.Empty, TextContainer.Size), TextContainer);
-					var glyphIndex = TextLayout.GetGlyphIndex ((nuint)index);
-					var p = TextLayout.GetLocationForGlyph ((nuint)glyphIndex);
+#if NET
+					TextLayout.GlyphRangeForBoundingRect(new CGRect (CGPoint.Empty, TextContainer.Size), TextContainer);
+					var glyphIndex = TextLayout.GlyphIndexForCharacterAtIndex (index);
+					var p = TextLayout.LocationForGlyphAtIndex ((nint)glyphIndex);
+#else
+					TextLayout.GetGlyphRangeForBoundingRect(new CGRect(CGPoint.Empty, TextContainer.Size), TextContainer);
+					var glyphIndex = TextLayout.GetGlyphIndex((nuint)index);
+					var p = TextLayout.GetLocationForGlyph((nuint)glyphIndex);
+#endif
 					TextStorage.RemoveLayoutManager (TextLayout);
 					TextLayout.RemoveTextContainer (0);
 					return p;

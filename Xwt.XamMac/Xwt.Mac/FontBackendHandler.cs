@@ -29,6 +29,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 using AppKit;
+using CoreFoundation;
 using CoreText;
 using Foundation;
 using Xwt.Backends;
@@ -57,7 +58,11 @@ namespace Xwt.Mac
 		public override IEnumerable<KeyValuePair<string, object>> GetAvailableFamilyFaces (string family)
 		{
 			foreach (var nsFace in NSFontManager.SharedFontManager.AvailableMembersOfFontFamily(family)) {
+#if NET
+				var name = CFString.FromHandle(nsFace.ValueAt(1));
+#else
 				var name = NSString.FromHandle(nsFace.ValueAt(1));
+#endif
 				using (var weightValue = (NSNumber)NSValue.ValueFromPointer(nsFace.ValueAt(2)).NonretainedObjectValue)
 				using (var traitsValue = (NSNumber)NSValue.ValueFromPointer(nsFace.ValueAt(3)).NonretainedObjectValue)
 				{
@@ -93,7 +98,7 @@ namespace Xwt.Mac
 			return CTFontManager.RegisterFontsForUrl (NSUrl.FromFilename (fontPath), CTFontManagerScope.Process) == null;
 		}
 
-		#region IFontBackendHandler implementation
+#region IFontBackendHandler implementation
 		public override object Copy (object handle)
 		{
 			FontData f = (FontData) handle;
@@ -257,7 +262,7 @@ namespace Xwt.Mac
 			FontData f = (FontData) handle;
 			return f.Stretch;
 		}
-		#endregion
+#endregion
 	}
 
 	public class FontData

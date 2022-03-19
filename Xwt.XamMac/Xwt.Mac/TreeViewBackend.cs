@@ -455,7 +455,11 @@ namespace Xwt.Mac
 		}
 
 		[Export("tableView:acceptDrop:row:dropOperation:")]
+#if NET
+		public override bool AcceptDrop (NSOutlineView outlineView, NSDraggingInfo info, NSObject item, nint index)
+#else
 		public bool AcceptDrop (NSOutlineView outlineView, NSDraggingInfo info, NSObject item, nint index)
+#endif
 		{
 			return false;
 		}
@@ -519,7 +523,11 @@ namespace Xwt.Mac
 		}
 
 		[Export("tableView:validateDrop:proposedRow:proposedDropOperation:")]
+#if NET
+		public override NSDragOperation ValidateDrop (NSOutlineView outlineView, NSDraggingInfo info, NSObject item, nint index)
+#else
 		public NSDragOperation ValidateDrop (NSOutlineView outlineView, NSDraggingInfo info, NSObject item, nint index)
+#endif
 		{
 			return NSDragOperation.None;
 		}

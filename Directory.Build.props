@@ -18,7 +18,6 @@
 
     <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
     
-    <DefineConstants>$(DefineConstants);NET</DefineConstants>
   </PropertyGroup>
 
 </Project>

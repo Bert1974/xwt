@@ -331,7 +331,7 @@ namespace Xwt.Mac
 					stop = false;
 					if (attrs.ContainsKey (NSStringAttributeKey.Link)) {
 #if NET
-						var rects = GetRectsArray(range);
+						var rects = RectsForCharacterRange(range);
 #else
 						var rects = GetRects (range);
 #endif
