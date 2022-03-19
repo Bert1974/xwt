@@ -11,6 +11,8 @@
     <TargetFrameworks>$(MacTargetFramework)</TargetFrameworks>
     <DisableImplicitNamespaceImports>True</DisableImplicitNamespaceImports>
 
+	<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+	  
     <SupportedOSPlatformVersion>10.14</SupportedOSPlatformVersion>
 
     <AssemblyTitle>Xwt.XamMac</AssemblyTitle>
@@ -24,6 +26,7 @@
     <DebugSymbols>True</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>False</Optimize>
+	<OutputPath>bin\Debug\net461</OutputPath>
     <DefineConstants>DEBUG;NETFRAMEWORK;NET461;NET</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -32,6 +35,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
+	<OutputPath>bin\Release\net461</OutputPath>
     <DefineConstants>TRACE;RELEASE;NETFRAMEWORK;NET461;NET</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
