@@ -57,7 +57,11 @@ namespace Xwt.Mac
 			this.source = source;
 		}
 
+#if NET
 		public CompositeCell (IntPtr p) : base (p)
+#else
+		public CompositeCell (NativeHandle p) : base (p)
+#endif
 		{
 		}
 

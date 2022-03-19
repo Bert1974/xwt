@@ -195,7 +195,11 @@ namespace Xwt.Mac
 		//
 		internal event Action <MacButton> ActivatedInternal;
 
+#if (NET)
 		public MacButton (IntPtr p): base (p)
+#else
+		public MacButton (NativeHandle p): base (p)
+#endif
 		{
 		}
 		

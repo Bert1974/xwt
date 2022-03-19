@@ -403,8 +403,12 @@ namespace Xwt.Mac
 		public TreeItem ()
 		{
 		}
-		
+
+#if NET		
 		public TreeItem (IntPtr p): base (p)
+#else
+		public TreeItem (NativeHandle p): base (p)
+#endif
 		{
 		}
 		

@@ -617,8 +617,12 @@ namespace Xwt.Mac
 			if (ob == null)
 				return NSDragOperation.None;
 			var backend = ob.Backend;
-			
+
+#if NET			
 			NSDraggingInfo di = (NSDraggingInfo) Runtime.GetNSObject (dragInfo);
+#else
+			INSDraggingInfo di = (INSDraggingInfo) Runtime.GetNSObject (dragInfo);
+#endif
 			var types = di.DraggingPasteboard.Types.Select (ToXwtDragType).ToArray ();
 			var pos = new Point (di.DraggingLocation.X, di.DraggingLocation.Y);
 			
@@ -663,8 +667,12 @@ namespace Xwt.Mac
 				return false;
 			
 			var backend = ob.Backend;
-			
+
+#if NET			
 			NSDraggingInfo di = (NSDraggingInfo) Runtime.GetNSObject (dragInfo);
+#else
+			INSDraggingInfo di = (INSDraggingInfo) Runtime.GetNSObject (dragInfo);
+#endif
 			var types = di.DraggingPasteboard.Types.Select (ToXwtDragType).ToArray ();
 			var pos = new Point (di.DraggingLocation.X, di.DraggingLocation.Y);
 			
@@ -686,8 +694,12 @@ namespace Xwt.Mac
 				return false;
 			
 			var backend = ob.Backend;
-			
+
+#if NET			
 			NSDraggingInfo di = (NSDraggingInfo) Runtime.GetNSObject (dragInfo);
+#else
+			INSDraggingInfo di = (INSDraggingInfo) Runtime.GetNSObject (dragInfo);
+#endif
 			var pos = new Point (di.DraggingLocation.X, di.DraggingLocation.Y);
 			
 			if ((backend.currentEvents & WidgetEvent.DragDrop) != 0) {
@@ -706,15 +718,23 @@ namespace Xwt.Mac
 		{
 			Console.WriteLine ("ConcludeDragOperation");
 		}
-		
+
+#if NET		
 		protected virtual void OnDragOverCheck (NSDraggingInfo di, DragOverCheckEventArgs args)
+#else
+		protected virtual void OnDragOverCheck (INSDraggingInfo di, DragOverCheckEventArgs args)
+#endif
 		{
 			ApplicationContext.InvokeUserCode (delegate {
 				eventSink.OnDragOverCheck (args);
 			});
 		}
-		
+
+#if NET
 		protected virtual void OnDragOver (NSDraggingInfo di, DragOverEventArgs args)
+#else
+		protected virtual void OnDragOver (INSDraggingInfo di, DragOverEventArgs args)
+#endif
 		{
 			ApplicationContext.InvokeUserCode (delegate {
 				eventSink.OnDragOver (args);

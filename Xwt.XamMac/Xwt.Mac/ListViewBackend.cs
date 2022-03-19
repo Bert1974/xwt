@@ -280,7 +280,11 @@ namespace Xwt.Mac
 		}
 
 		[Export("tableView:acceptDrop:row:dropOperation:")]
+#if (NET)
 		public bool AcceptDrop (NSTableView tableView, NSDraggingInfo info, nint row, NSTableViewDropOperation dropOperation)
+#else
+		public bool AcceptDrop (NSTableView tableView, INSDraggingInfo info, nint row, NSTableViewDropOperation dropOperation)
+#endif
 		{
 			return false;
 		}
@@ -309,7 +313,11 @@ namespace Xwt.Mac
 		}
 
 		[Export("tableView:validateDrop:proposedRow:proposedDropOperation:")]
+#if (NET)
 		public NSDragOperation ValidateDrop (NSTableView tableView, NSDraggingInfo info, nint row, NSTableViewDropOperation dropOperation)
+#else
+		public NSDragOperation ValidateDrop (NSTableView tableView, INSDraggingInfo info, nint row, NSTableViewDropOperation dropOperation)
+#endif
 		{
 			return NSDragOperation.None;
 		}

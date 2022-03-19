@@ -61,7 +61,11 @@ namespace Xwt.Mac
 		ApplicationContext context;
 		IMenuButtonEventSink eventSink;
 
+#if NET
 		public MacMenuButton (IntPtr p): base (p)
+#else
+		public MacMenuButton (NativeHandle p): base (p)
+#endif
 		{
 		}
 		

@@ -82,9 +82,17 @@ namespace Xwt.Mac
 				View.AddSubview (NativeChild);
 
 				if (!string.IsNullOrEmpty(appearance) && appearance.IndexOf ("Dark", StringComparison.Ordinal) >= 0)
+#if NET
 					View.SetAppearance( NSAppearance.GetAppearance (MacSystemInformation.OsVersion < MacSystemInformation.Mojave ? NSAppearance.NameVibrantDark : new NSString("NSAppearanceNameDarkAqua")));
+#else
+					View.Appearance = NSAppearance.GetAppearance (MacSystemInformation.OsVersion < MacSystemInformation.Mojave ? NSAppearance.NameVibrantDark : new NSString("NSAppearanceNameDarkAqua"));
+#endif
 				else
+#if NET
 					View.SetAppearance( NSAppearance.GetAppearance (NSAppearance.NameAqua));
+#else
+					View.Appearance = NSAppearance.GetAppearance (NSAppearance.NameAqua);
+#endif
 
 				WidgetSpacing padding = 0;
 				if (Backend != null)
@@ -259,7 +267,11 @@ namespace Xwt.Mac
 				controller.EffectiveAppearanceName = refView.EffectiveAppearance.Name;
 
 				if (popover is INSAppearanceCustomization)
+#if (NET)
 					((INSAppearanceCustomization)popover).SetAppearance( refView.EffectiveAppearance);
+#else
+					((INSAppearanceCustomization)popover).Appearance = refView.EffectiveAppearance;
+#endif
 			}
 
 			popover.Show (positionRect.ToCGRect (),
@@ -305,7 +317,11 @@ namespace Xwt.Mac
 			public NSAppearanceCustomizationPopover ()
 			{ }
 
+#if NET
 			protected NSAppearanceCustomizationPopover (IntPtr handle) : base (handle)
+#else
+			protected NSAppearanceCustomizationPopover (NativeHandle handle) : base (handle)
+#endif
 			{ }
 		}
 	}

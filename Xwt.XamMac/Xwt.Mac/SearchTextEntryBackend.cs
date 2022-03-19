@@ -120,7 +120,11 @@ namespace Xwt.Mac
 
 			}
 
+#if NET
 			protected CustomCell(IntPtr ptr) : base(ptr)
+#else
+			protected CustomCell(NativeHandle ptr) : base(ptr)
+#endif
 			{
 			}
 

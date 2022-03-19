@@ -56,7 +56,11 @@ namespace Xwt.Mac
 			}
 		}
 
+#if NET
 		public DialogBackend (IntPtr ptr) : base (ptr)
+#else
+		public DialogBackend (NativeHandle ptr) : base (ptr)
+#endif
 		{
 		}
 

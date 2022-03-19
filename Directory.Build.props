@@ -1,41 +1,21 @@
 <Project>
 
-	<PropertyGroup >
-		<InMonoDevelopTree>False</InMonoDevelopTree>
-		<Net6>False</Net6>
-		<InMonoDevelopTree Condition="Exists('$(MSBuildThisFileDirectory)..\..\msbuild\MonoDevelop.AfterCommon.props')">True</InMonoDevelopTree>
-		<Net6 Condition="Exists('$(MSBuildThisFileDirectory)..\..\msbuild\Net6.props')">True</Net6>
+  <PropertyGroup>
+    <InMonoDevelopTree>False</InMonoDevelopTree>
+    <Net6>False</Net6>
+    <InMonoDevelopTree Condition="Exists('$(MSBuildThisFileDirectory)..\..\msbuild\MonoDevelop.AfterCommon.props')">True</InMonoDevelopTree>
+    <Net6 Condition="Exists('$(MSBuildThisFileDirectory)..\..\msbuild\Net6.props')">True</Net6>
 
-		<DotNetTargetFrameworks >netstandard2.0</DotNetTargetFrameworks>
-		<DotNetTargetFrameworksWPF >net472</DotNetTargetFrameworksWPF>
-		<DotNetFrameworkTarget >net461</DotNetFrameworkTarget>
-		<DotNetCoreTarget>netstandard2.0</DotNetCoreTarget>
+    <DotNetFrameworkTarget>net461</DotNetFrameworkTarget>
+    <DotNetCoreTarget>netstandard2.0</DotNetCoreTarget>
 
-	</PropertyGroup>
-	
-	<PropertyGroup Condition=" '$(TARGET)' != 'MAC' " >
-		<MacTargetFramework Condition="!$(Net6)">net461</MacTargetFramework>
-		<MacTargetFramework Condition="$(Net6)">net6.0-macos</MacTargetFramework>
+    <MacTargetFramework Condition="!$(Net6)">$(DotNetFrameworkTarget)</MacTargetFramework>
+    <MacTargetFramework Condition="$(Net6)">net6.0-macos</MacTargetFramework>
 
-		<TargetFrameworks Condition="!$(Net6)" >$(DotNetTargetFramework)</TargetFrameworks>
-		<TargetFrameworks Condition="$(Net6)">$(DotNetCoreTarget)</TargetFrameworks>
+    <TargetFramework Condition="!$(Net6)">$(DotNetFrameworkTarget)</TargetFramework>
+    <TargetFramework Condition="$(Net6)">$(DotNetCoreTarget)</TargetFramework>
 
-		<AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
-<IntermediateOutputPath>$(BaseIntermediateOutputPath)\$(Configuration)\$(TargetFramework.ToLowerInvariant())\</IntermediateOutputPath>
-
-	</PropertyGroup>
-
-	<PropertyGroup Condition=" '$(TARGET)' == 'MAC' " >
-
-		<MacTargetFramework Condition="!$(Net6)">$(DotNetFrameworkTarget)</MacTargetFramework>
-		<MacTargetFramework Condition="$(Net6)">net6.0-macos</MacTargetFramework>
-
-		<TargetFrameworks Condition="!$(Net6)" >netstandard2.0;netstandard2.1;netcoreapp3.1;net472;net461</TargetFrameworks>
-		<TargetFrameworks Condition="$(Net6)">$(DotNetCoreTarget)</TargetFrameworks>
-
-		<AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
-<IntermediateOutputPath>$(BaseIntermediateOutputPath)\$(Configuration)\$(TargetFramework.ToLowerInvariant())\</IntermediateOutputPath>
-
-	</PropertyGroup>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
 
 </Project>

@@ -283,7 +283,11 @@ namespace Xwt.Mac
 		{
 		}
 
+#if (NET)
 		protected CustomTextFieldCell (IntPtr ptr) : base (ptr)
+#else
+		protected CustomTextFieldCell (NativeHandle ptr) : base (ptr)
+#endif
 		{
 		}
 

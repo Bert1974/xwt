@@ -260,8 +260,13 @@ namespace Xwt.Mac
 					TextLayout.AddTextContainer (TextContainer);
 					TextStorage.AddLayoutManager (TextLayout);
 
+#if NET
 					TextLayout.DrawBackgroundForGlyphRange(new NSRange(0, Text.Length), new CGPoint (x, y));
 					TextLayout.DrawGlyphsForGlyphRange (new NSRange(0, Text.Length), new CGPoint (x, y));
+#else
+					TextLayout.DrawBackground (new NSRange(0, Text.Length), new CGPoint (x, y));
+					TextLayout.DrawGlyphs (new NSRange(0, Text.Length), new CGPoint (x, y));
+#endif
 					TextStorage.RemoveLayoutManager (TextLayout);
 					TextLayout.RemoveTextContainer (0);
 				}

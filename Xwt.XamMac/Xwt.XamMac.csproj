@@ -1,7 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk">
-<Target Name="message" >
-    <Message Text="net6=$(Net6)"/>
-</Target>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -11,7 +8,7 @@
     <AssemblyName>Xwt.XamMac</AssemblyName>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>..\xwt.snk</AssemblyOriginatorKeyFile>
-    <TargetFrameworks>net461</TargetFrameworks>
+    <TargetFramework>$(MacTargetFramework)</TargetFramework>
     <DisableImplicitNamespaceImports>True</DisableImplicitNamespaceImports>
 
     <SupportedOSPlatformVersion>10.14</SupportedOSPlatformVersion>

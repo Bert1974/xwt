@@ -54,7 +54,11 @@ namespace Xwt.Mac
 			{
 				var macParent = parent as NSWindow ?? context.Toolkit.GetNativeWindow (parent) as NSWindow ?? NSApplication.SharedApplication.KeyWindow;
 				if (macParent != null && fontPanel.EffectiveAppearance.Name != macParent.EffectiveAppearance.Name)
+#if NET
 					fontPanel.SetAppearance( macParent.EffectiveAppearance);
+#else
+					fontPanel.Appearance = macParent.EffectiveAppearance;
+#endif
 			}
 
 			if (SelectedFont != null) {

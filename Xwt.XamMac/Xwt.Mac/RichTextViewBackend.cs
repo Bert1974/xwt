@@ -221,7 +221,11 @@ namespace Xwt.Mac
 
 		public ViewBackend Backend { get;  set; }
 
+#if NET
 		public MacTextView (IntPtr p) : base (p)
+#else
+		public MacTextView (NativeHandle p) : base (p)
+#endif
 		{
 			CommonInit ();
 		}
@@ -326,7 +330,11 @@ namespace Xwt.Mac
 				TextStorage.EnumerateAttributes (new NSRange (0, TextStorage.Length), NSAttributedStringEnumeration.None, (NSDictionary attrs, NSRange range, ref bool stop) => {
 					stop = false;
 					if (attrs.ContainsKey (NSStringAttributeKey.Link)) {
+#if NET
 						var rects = GetRectsArray(range);
+#else
+						var rects = GetRects (range);
+#endif
 						for (nuint i = 0; i < rects.Count; i++)
 							AddCursorRect (rects.GetItem<NSValue> (i).CGRectValue, NSCursor.PointingHandCursor);
 					}
