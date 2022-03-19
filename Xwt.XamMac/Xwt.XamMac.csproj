@@ -8,7 +8,7 @@
     <AssemblyName>Xwt.XamMac</AssemblyName>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>..\xwt.snk</AssemblyOriginatorKeyFile>
-    <TargetFramework>$(MacTargetFramework)</TargetFramework>
+    <TargetFrameworks>$(MacTargetFramework)</TargetFrameworks>
     <DisableImplicitNamespaceImports>True</DisableImplicitNamespaceImports>
 
     <SupportedOSPlatformVersion>10.14</SupportedOSPlatformVersion>
